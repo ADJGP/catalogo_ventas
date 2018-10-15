@@ -199,7 +199,7 @@ mysqli_query($conexion,"UPDATE `tienda_productos` SET `status`='0' WHERE (`id_pr
 
                         }else{
 
-                          $stock='';
+                          $stock='<span class="label label-success">Disponible</span>';
                         } ?>
                         
                           <td style="text-align: center;"><?php echo $n; ?></td>
@@ -208,7 +208,13 @@ mysqli_query($conexion,"UPDATE `tienda_productos` SET `status`='0' WHERE (`id_pr
                           echo substr($m_productos[1], 0, $caracteres).'...';
 
                           ?></td>
-                          <td style="text-align: center;"><?php echo $m_productos[6]; ?></td>
+                          <td style="text-align: center;"><?php 
+                                  $b_cat=$conexion->query("SELECT * FROM tienda_categoria WHERE id_categoria='$m_productos[6]'");
+                                  $v_cat=$b_cat->fetch_array();
+                             
+                                   echo $v_cat['titulo'];
+
+                             ?></td>
                             <td style="text-align: center;"><?php if ($m_productos[13]==1) { ?>
                             <span class="label label-success">Activado</span>
                             <?php } ?>

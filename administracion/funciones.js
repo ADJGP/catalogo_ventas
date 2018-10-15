@@ -372,7 +372,7 @@ $.ajax({url:'../registros/elim_pro.php'//ruta a donde queremos ir
     ,type:'POST'//metodo 
     ,data:'id=' + id//variables
     ,success: function(data){
-    alert(data);
+    //alert(data);
     if (data==1) {
      
     //Lanzamos el alert 
@@ -814,11 +814,13 @@ function guardar_cambios_pro(id) {
 
 tit=$('#titulo').val();
 desc=$('#descrip').val();
-carac=$('#carac').val();
+carac=$('#caracte').val();
 stock=$('#stock').val();
 precio=$('#precio').val();
 min=$('#min').val();
 ncat=$('#ncat').val();
+
+//alert(carac);
 
 $.ajax({url:'../registros/mod_pro.php'//ruta a donde queremos ir 
     ,type:'POST'//metodo 
